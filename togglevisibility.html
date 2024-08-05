@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toggle Element Visibility</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#btn").click(function(){
+            $("#div").toggle();
+        });
+    });
+</script>
+<style>
+    #div {
+
+        height: 200px;
+        background-color: lightblue;
+        text-align: center;
+    
+    }
+</style>
+</head>
+<body>
+
+<button id="btn">Toggle Visibility</button>
+<div id="div">
+    <p>Education in India covers different levels and types of learning, such as early childhood education, primary education, secondary education, higher education, and vocational education. It varies significantly according to different factors, such as location (urban or rural), gender, caste, religion, language, and disability.
+
+        Education in India faces many challenges and opportunities, such as improving access and quality, reducing disparities and dropouts, increasing enrolment and completion rates, enhancing learning outcomes and employability, strengthening governance and accountability, promoting innovation and technology, and addressing the impact of COVID-19 pandemic.
+        Education in India covers different levels and types of learning, such as early childhood education, primary education, secondary education, higher education, and vocational education. It varies significantly according to different factors, such as location (urban or rural), gender, caste, religion, language, and disability.
+
+        Education in India faces many challenges and opportunities, such as improving access and quality, reducing disparities and dropouts, increasing enrolment and completion rates, enhancing learning outcomes and employability, strengthening governance and accountability, promoting innovation and technology, and addressing the impact of COVID-19 pandemic.  </p>
+</div>
+
+</body>
+</html>

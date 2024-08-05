@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    
+    <input type="checkbox" id="check1" class="check" name="color" value="pink">
+    <label for="check1">pink</label><br>
+    <input type="checkbox" id="check2" class="check" name="color" value="red">
+    <label for="check2">red</label><br>
+    <input type="checkbox" id="check3" class="check" name="color" value="green">
+    <label for="check3">green</label><br>
+    
+
+
+
+    <div><span id="count"></span> checkboxes are checked</div>
+    <button type="button" id="btn">submit</button>
+
+    <script>
+        $(document).ready(function(){
+            $("#btn").click(function(){
+                var selectedColors = [];
+
+                var a = $('input[type="checkbox"]:checked').length;
+                $("#count").html(a);
+                
+                if(selectedColors.length === 1){
+                    $("#message").text("Selected checkbox one: " + selectedColors.join(", "));
+                }
+                else if(selectedColors.length === 2){
+                    $("#message").text("Selected checkboxes two: " + selectedColors.join(", "));
+                }
+                else if(selectedColors.length === 3){
+                    $("#message").text("Selected checkboxes three: " + selectedColors.join(", "));
+                }
+                else{
+                    $("#message").text("0 checkboxes are selected.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

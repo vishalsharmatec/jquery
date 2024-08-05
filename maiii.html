@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#todolist {
+    margin-bottom: 10px;
+}
+
+#taskInput {
+    padding: 8px;
+    width: calc(100% - 70px);
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #ccc;
+}
+
+#button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+#button:hover {
+    background-color: #0056b3;
+}
+
+#tasks {
+    font-size: 18px;
+}
+
+.taskItem {
+    margin-bottom: 5px;
+    list-style: none;
+}
+
+.taskItem input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="todolist">
+            <input type="text" id="taskInput" placeholder="Enter task...">
+            <button id="button">Add</button>
+        </div>
+        <div id="tasks"></div>
+        <ul id="taskList">
+
+        </ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

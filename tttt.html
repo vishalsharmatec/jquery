@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Highlight Table Rows</title>
+<style>
+    th, td {
+        border: 2px solid black;
+        text-align: left;
+        padding: 8px;
+    }
+
+    .even { background-color: lightblue; }
+    .odd { background-color: lightgreen; }
+</style>
+</head>
+<body>
+    <table id="table" style="border: 2px solid black; border-collapse: collapse;">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+        </tr>
+        <tr>
+            <td>suni</td>
+            <td>sunil@gmail.com</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td>anuj</td>
+            <td>anuj@gmail.com</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td>ankur</td>
+            <td>ankur@gmail.com</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td>anil</td>
+            <td>anil@gmail.com</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td>anmol</td>
+            <td>anmol@gmail.com</td>
+            <td>22</td>
+        </tr>
+    </table>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#table tr').mouseenter(function() {
+                var isEven = $(this).index() % 2 === 0;
+                $(this).addClass(isEven ? 'even' : 'odd');
+            });
+            $('#table tr').mouseleave(function() {
+                $('#table tr').removeClass('even odd');
+            });
+        });
+    </script>
+</body>
+</html>

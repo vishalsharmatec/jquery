@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple To-Do List</title>
+<style>body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .input-container {
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  li:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .complete {
+    text-decoration: line-through;
+    color: #777;
+  }
+  
+  .clear-btn {
+    margin-top: 20px;
+    display: block;
+    background-color: #d9534f;
+  }
+  
+  .clear-btn:hover {
+    background-color: #c9302c;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Simple To-Do List</h1>
+    <div class="input-container">
+      <input type="text" id="taskInput" placeholder="Add a new task">
+      <button id="addTaskBtn">Add</button>
+    </div>
+    <ul id="taskList">
+    </ul>
+    <button id="clearCompletedBtn">Clear Completed</button>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+  // Add new task
+  $('#addTaskBtn').on('click', function() {
+    var taskInput = $('#taskInput').val();
+    if (taskInput !== '') {
+      $('#taskList').append('<li><input type="checkbox" class="task-checkbox"><span>' + taskInput + '</span><button class="delete-btn">Delete</button></li>');
+      $('#taskInput').val('');
+    }
+  });
+
+  // Mark task as complete
+  $(document).on('click', '.task-checkbox', function() {
+    var span = $(this).next();
+    if ($(this).is(':checked')) {
+      span.addClass('complete');
+    } else {
+      span.removeClass('complete');
+    }
+  });
+
+  // Delete task
+  $(document).on('click', '.delete-btn', function() {
+    $(this).parent().remove();
+  });
+
+  // Clear all completed tasks
+  $('#clearCompletedBtn').on('click', function() {
+    $('.complete').parent().remove();
+  });
+
+  // Additional information when hovering over a task
+  $(document).on('mouseenter', 'li', function() {
+    var span = $(this).find('span');
+    if (!span.hasClass('complete')) {
+      span.css('color', 'blue');
+    }
+  });
+
+  $(document).on('mouseleave', 'li', function() {
+    var span = $(this).find('span');
+    span.css('color', '');
+  });
+
+  // Additional information when hovering over a checkbox
+  $(document).on('mouseenter', '.task-checkbox', function() {
+    var span = $(this).next();
+    if (!span.hasClass('complete')) {
+      span.css('color', 'blue');
+    }
+  });
+
+  $(document).on('mouseleave', '.task-checkbox', function() {
+    var span = $(this).next();
+    span.css('color', '');
+  });
+});
+
+  </script>
+ 
+</body>
+</html>

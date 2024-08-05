@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>To-Do List</title>
+    <style>
+        /* Existing styles... */
+
+        /* Tooltip container */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Tooltip text */
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 150px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -75px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        /* Tooltip arrow */
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        /* Show the tooltip text when hovering */
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input type="text" id="title" class="form-control" placeholder="Title">
+        <!-- Add the tooltip container -->
+        <div class="tooltip">
+            <input type="text" id="description" class="form-control" placeholder="Description">
+            <!-- Tooltip text -->
+            <span class="tooltiptext">Enter a brief description here</span>
+        </div>
+        <button id="button">Add</button>
+        <h4>To Do List Items</h4>
+        <div class="table-responsive">
+            <table id="tasks" style="display:none;">
+                <!-- Table headers -->
+                <thead>
+                    <tr>
+                        <th>Completed</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Clear button -->
+        <div>
+            <button type="button" id="btn" style="display:none;">Clear Completed Tasks</button>
+        </div>
+    </div>
+    <div id="error" style="color: red;"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        // Your jQuery code...
+    </script>
+</body>
+
+</html>

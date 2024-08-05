@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#btn').click(function(){
+              var data = $("#textbox").val();
+              jQuery("#selection").append("<option value='0'>"+ data  +" </option>");
+            });   
+        });
+        </script>
+<body>
+    
+        
+        <select id="selection" selected>
+          <option>select</option>
+          <option value="1">ASP.NET</option>
+          <option value="2">C#</option>
+          <option value="3">VB.NET</option>
+          <option value="4">HTML</option>
+          <option value="5">jQuery</option>
+        </select> 
+        
+        <input type="text" id="textbox" />
+        
+        <br/><br/>
+        <input type="button" id="btn" Value="Add Item to Begining" />
+    
+</body>
+</html>

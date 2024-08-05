@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>To-Do List</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: aquamarine;
+           
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        #todolist {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        #list {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        #button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #tasks {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .task {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container mb-3">
+        <div id="todolist">
+            <input type="text" id="list" class="form-control" name="list">
+            <button id="button">Add</button>
+        </div>
+        <ul id="tasks" class="btn btn-primary"></ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#button").click(function () {
+                var toAdd = $('#list').val();
+              
+                    $('#tasks').append('<li class="task">' + toAdd + '</li>');
+                    $('#list').val(''); // Clear input after adding task
+    
+            });
+            $(document).on('click', '.task', function () {
+                $(this).toggleClass('strike').fadeOut('slow', function () {
+                    $(this).remove(); // Remove the task after fading out
+                });
+            });
+        });
+    </script>
+</body>
+</html>

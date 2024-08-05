@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>To-Do List</title>
+    <style>
+        body {
+            height: 100vh;
+            background: #b3cee8;
+        }
+
+        .container {
+            width: 40%;
+            top: 30%;
+            left: 50%;
+            background: white;
+            border-radius: 10px;
+            position: relative;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+        }
+
+        input {
+            width: 75%;
+            height: 20px;
+            padding: 12px;
+            color: #111111;
+            position: relative;
+            border-radius: 5px;
+            font-size: 16px;
+            border: 2px solid #d1d3d4;
+        }
+
+        #button {
+            position: relative;
+            float: right;
+            font-size: 16px;
+            background-color: #0d75ec;
+            border: none;
+            color: #ffffff;
+            cursor: pointer;
+            outline: none;
+            width: 20%;
+            height: 45px;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .task {
+            border-radius: 5px;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #939697;
+            cursor: pointer;
+            background-color: #69d4e7;
+            height: 50px;
+            margin-left: -40px;
+            margin-bottom: 8px;
+            display: flex;
+        }
+
+        h4 {
+            text-align: center;
+            font-weight: 100%;
+
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container mb-3">
+        <div id="todolist mb-3">
+            <input type="text" id="list" class="form-control" name="list">
+            <button id="button">Add</button>
+            <h4>ToDolist item</h4>
+        </div>
+        <div id="tasks" class="btn btn-primary"></div>
+        <ul>
+        <button type="submit" >del<i class="fa fa-trash"></i></button>
+        </ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#button").click(function () {
+                var toAdd = $('input[name=list]').val();
+                $('ul').append('<li class="task">' + toAdd + '</li>');
+            });
+            $(document).on('click', '.delete', function () {
+                $(this).parent().remove();
+            });
+            $(document).on('click', 'li', function () {
+                $(this).hide();
+            });
+        });
+
+    </script>
+</body>
+
+</html>

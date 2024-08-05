@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Countdown Timer</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<h1 id="time"></h1>
+
+<script>
+$(document).ready(function() {
+
+    function convert(s){
+var min = Math.floor(s/60);
+var sec = s % 60;
+return ("0" + min).slice(-2) + ":" +("0" + sec ).slice(-2);  
+ }
+ var interval = setInterval(timer, 1000);
+ var counter = 0;
+ var timeleft = 60;
+ var time = $("#time");
+ time.html(convert(timeleft-counter));
+ function timer(){
+    counter++;
+    time.html(convert(timeleft-counter));
+    if (counter == timeleft) {
+        clearInterval(interval);
+        alert("Time Up");
+    }
+ }
+
+    
+});
+</script>
+
+</body>
+</html>

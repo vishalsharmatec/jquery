@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Change Background Color on Hover</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    #myDiv {
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+        color: white;
+        text-align: center;
+        line-height: 200px;
+    }
+</style>
+</head>
+<body>
+
+<div id="myDiv">Hover over me!</div>
+
+<script>
+    $(document).ready(function(){
+        $("#myDiv").hover(function(){
+            $(this).css("background-color", "white"); },
+            function(){$(this).css("background-color", "blue");
+        });
+    });
+</script>
+
+</body>
+</html>
